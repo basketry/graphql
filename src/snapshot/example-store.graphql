@@ -1,0 +1,181 @@
+type Query {
+  address(addressId: String!): Address
+  addresses(addressIds: [String!], userIds: [String!], first: Int, after: String, last: Int, before: String): AddressConnection!
+  order(orderId: String!): Order
+  orders(productIds: [String!], orderIds: [String!], first: Int, after: String, last: Int, before: String): OrderConnection!
+  product(productId: String!): Product
+  products(productIds: [String!], orderIds: [String!], first: Int, after: String, last: Int, before: String): ProductConnection!
+  user(userId: String!): User
+  users(userIds: [String!], first: Int, after: String, last: Int, before: String): UserConnection!
+}
+
+type Address @key(fields: "id") {
+  id: ID!
+  user: User!
+  line1: String!
+  line2: String
+  postalCode: String!
+  region: String!
+  country: String!
+}
+
+type AddressEdge {
+  node: Address!
+  cursor: String!
+}
+
+type AddressConnection {
+  nodes: [Address!]!
+  edges: [AddressEdge!]!
+  pageInfo: PageInfo!
+}
+
+type Error {
+  """
+  A unique identifier for this particular occurrence of the problem.
+  """
+  id: String
+  """
+  An application-specific error code, expressed as a string value
+  """
+  code: ErrorCode!
+  """
+  A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.
+  """
+  title: String
+  """
+  a human-readable explanation specific to this occurrence of the problem. Like `title`, this field’s value can be localized.
+  """
+  detail: String
+  """
+  A JSON Pointer (RFC6901) to the associated entity in the request document (e.g. `/data` for a primary data object, or `/data/attributes/title` for a specific attribute).
+  """
+  pointer: String
+  """
+  A string indicating which method parameter caused the error.
+  """
+  parameter: String
+}
+
+type Order @key(fields: "id") {
+  id: ID!
+  owner: User
+  shippingAddress: Address
+  billingAddress: Address
+  status: OrderStatus
+  products(first: Int, after: String, last: Int, before: String): OrderProductConnection!
+}
+
+type OrderEdge {
+  node: Order!
+  cursor: String!
+}
+
+type OrderConnection {
+  nodes: [Order!]!
+  edges: [OrderEdge!]!
+  pageInfo: PageInfo!
+}
+
+type OrderProductEdge {
+  node: Product!
+  cursor: String!
+  quantity: Int!
+}
+
+type OrderProductConnection {
+  nodes: [Product!]!
+  edges: [OrderProductEdge!]!
+  pageInfo: PageInfo!
+}
+
+"""
+Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.
+"""
+type PageInfo {
+  """
+  Indicates whether more items exist prior to the set defined by the client's arguments.
+  """
+  hasPreviousPage: Boolean!
+  """
+  Indicates whether more items exist following the set defined by the client's arguments.
+  """
+  hasNextPage: Boolean!
+  """
+  Cursor corresponding to the first item in the resulting set if any items were returned; otherwise, undefined
+  """
+  startCursor: String
+  """
+  Cursor corresponding to the last item in the resulting set if any items were returned; otherwise, undefined
+  """
+  endCursor: String
+}
+
+type Product @key(fields: "id") {
+  id: ID!
+  title: String!
+  description: String!
+  imageUrl: String!
+  price: Float
+  orders(first: Int, after: String, last: Int, before: String): ProductOrderConnection!
+}
+
+type ProductEdge {
+  node: Product!
+  cursor: String!
+}
+
+type ProductConnection {
+  nodes: [Product!]!
+  edges: [ProductEdge!]!
+  pageInfo: PageInfo!
+}
+
+type ProductOrderEdge {
+  node: Order!
+  cursor: String!
+  quantity: Int!
+}
+
+type ProductOrderConnection {
+  nodes: [Order!]!
+  edges: [ProductOrderEdge!]!
+  pageInfo: PageInfo!
+}
+
+type User @key(fields: "id") {
+  id: ID!
+  name: String!
+  avatarUrl: String
+  defaultAddress: Address
+  widgetId: String
+  addresses(first: Int, after: String, last: Int, before: String): AddressConnection!
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+type UserConnection {
+  nodes: [User!]!
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+}
+
+enum ErrorCode {
+  BAD_PARAMETER
+  FORBIDDEN
+  NOT_FOUND
+}
+
+enum OrderStatus {
+  STARTED
+  BILLED
+  SHIPPED
+  DELIVERED
+}
+
+type Widget @key(fields: "id", resolvable: false) {
+  id: ID!
+}
