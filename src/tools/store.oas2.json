@@ -1,0 +1,519 @@
+{
+  "$schema": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v2.0/schema.json",
+  "swagger": "2.0",
+  "info": {
+    "title": "ExampleStore",
+    "version": "1.0.0"
+  },
+  "parameters": {
+    "first": {
+      "name": "first",
+      "in": "query",
+      "type": "integer",
+      "required": false,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "after": {
+      "name": "after",
+      "in": "query",
+      "type": "string",
+      "required": false
+    },
+    "last": {
+      "name": "last",
+      "in": "query",
+      "type": "integer",
+      "required": false,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "before": {
+      "name": "before",
+      "in": "query",
+      "type": "string",
+      "required": false
+    }
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "operationId": "getUsers",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "maxItems": 100,
+            "x-rel": { "foreignKey": { "type": "user", "property": "id" } }
+          },
+          { "$ref": "#/parameters/first" },
+          { "$ref": "#/parameters/after" },
+          { "$ref": "#/parameters/last" },
+          { "$ref": "#/parameters/before" }
+        ],
+        "responses": {
+          "200": { "$ref": "#/responses/userList" }
+        }
+      }
+    },
+    "/users/:userId": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "getUser",
+        "responses": {
+          "200": { "$ref": "#/responses/user" }
+        }
+      }
+    },
+
+    "/addresses": {
+      "get": {
+        "operationId": "getAddresses",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "addressIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "x-rel": { "foreignKey": { "type": "address", "property": "id" } }
+          },
+          {
+            "in": "query",
+            "name": "userIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "x-rel": { "foreignKey": { "type": "user", "property": "id" } }
+          },
+          { "$ref": "#/parameters/first" },
+          { "$ref": "#/parameters/after" },
+          { "$ref": "#/parameters/last" },
+          { "$ref": "#/parameters/before" }
+        ],
+        "responses": {
+          "200": { "$ref": "#/responses/addressList" }
+        }
+      }
+    },
+    "/addresses/:addressId": {
+      "parameters": [
+        {
+          "name": "addressId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "getAddress",
+        "responses": {
+          "200": { "$ref": "#/responses/address" }
+        }
+      }
+    },
+
+    "/orders": {
+      "get": {
+        "operationId": "getOrders",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "productIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "x-rel": { "foreignKey": { "type": "product", "property": "id" } }
+          },
+          {
+            "in": "query",
+            "name": "orderIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "x-rel": { "foreignKey": { "type": "order", "property": "id" } }
+          },
+          { "$ref": "#/parameters/first" },
+          { "$ref": "#/parameters/after" },
+          { "$ref": "#/parameters/last" },
+          { "$ref": "#/parameters/before" }
+        ],
+        "responses": {
+          "200": { "$ref": "#/responses/orderList" }
+        }
+      }
+    },
+    "/orders/:orderId": {
+      "parameters": [
+        {
+          "name": "orderId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "getOrder",
+        "responses": {
+          "200": { "$ref": "#/responses/order" }
+        }
+      }
+    },
+
+    "/products": {
+      "get": {
+        "operationId": "getProducts",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "productIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "x-rel": { "foreignKey": { "type": "product", "property": "id" } }
+          },
+          {
+            "in": "query",
+            "name": "orderIds",
+            "type": "array",
+            "required": false,
+            "items": { "type": "string" },
+            "x-rel": { "foreignKey": { "type": "order", "property": "id" } }
+          },
+          { "$ref": "#/parameters/first" },
+          { "$ref": "#/parameters/after" },
+          { "$ref": "#/parameters/last" },
+          { "$ref": "#/parameters/before" }
+        ],
+        "responses": {
+          "200": { "$ref": "#/responses/productList" }
+        }
+      }
+    },
+    "/products/:productId": {
+      "parameters": [
+        {
+          "name": "productId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "getProduct",
+        "responses": {
+          "200": { "$ref": "#/responses/product" }
+        }
+      }
+    }
+  },
+  "responses": {
+    "address": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/addressEnvelope" }
+    },
+    "addressList": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/addressListEnvelope" }
+    },
+    "order": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/orderEnvelope" }
+    },
+    "orderList": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/orderListEnvelope" }
+    },
+    "product": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/productEnvelope" }
+    },
+    "productList": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/productListEnvelope" }
+    },
+    "user": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/userEnvelope" }
+    },
+    "userList": {
+      "description": "Success",
+      "schema": { "$ref": "#/definitions/userListEnvelope" }
+    }
+  },
+  "definitions": {
+    "id": { "type": "string", "x-rel": { "primaryKey": true } },
+    "error": {
+      "type": "object",
+      "required": ["code"],
+      "properties": {
+        "id": {
+          "description": "A unique identifier for this particular occurrence of the problem.",
+          "type": "string"
+        },
+        "code": {
+          "description": "An application-specific error code, expressed as a string value",
+          "type": "string",
+          "enum": ["BAD_PARAMETER", "FORBIDDEN", "NOT_FOUND"]
+        },
+        "title": {
+          "description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.",
+          "type": "string"
+        },
+        "detail": {
+          "description": "a human-readable explanation specific to this occurrence of the problem. Like `title`, this field’s value can be localized.",
+          "type": "string"
+        },
+        "pointer": {
+          "description": "A JSON Pointer (RFC6901) to the associated entity in the request document (e.g. `/data` for a primary data object, or `/data/attributes/title` for a specific attribute).",
+          "type": "string"
+        },
+        "parameter": {
+          "description": "A string indicating which method parameter caused the error.",
+          "type": "string"
+        }
+      }
+    },
+    "pageInfo": {
+      "description": "Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.",
+      "type": "object",
+      "required": ["hasPreviousPage", "hasNextPage"],
+      "properties": {
+        "hasPreviousPage": {
+          "description": "Indicates whether more items exist prior to the set defined by the client's arguments.",
+          "type": "boolean"
+        },
+        "hasNextPage": {
+          "description": "Indicates whether more items exist following the set defined by the client's arguments.",
+          "type": "boolean"
+        },
+        "startCursor": {
+          "description": "Cursor corresponding to the first item in the resulting set if any items were returned; otherwise, undefined",
+          "type": "string"
+        },
+        "endCursor": {
+          "description": "Cursor corresponding to the last item in the resulting set if any items were returned; otherwise, undefined",
+          "type": "string"
+        }
+      }
+    },
+
+    "user": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "name": { "type": "string", "maxLength": 100 },
+        "avatarUrl": { "type": "string", "maxLength": 500 },
+        "defaultAddressId": {
+          "type": "string",
+          "x-rel": { "foreignKey": { "type": "address", "property": "id" } }
+        },
+        "widgetId": {
+          "type": "string",
+          "maxLength": 100,
+          "x-rel": { "foreignKey": { "type": "widget", "property": "id" } }
+        }
+      }
+    },
+    "userEnvelope": {
+      "type": "object",
+      "required": ["errors"],
+      "properties": {
+        "value": { "$ref": "#/definitions/user" },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        }
+      }
+    },
+    "userListEnvelope": {
+      "type": "object",
+      "required": ["values", "errors", "pageInfo"],
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/user" }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        },
+        "pageInfo": { "$ref": "#/definitions/pageInfo" }
+      }
+    },
+
+    "address": {
+      "type": "object",
+      "required": ["id", "userId", "line1", "postalCode", "region", "country"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "userId": {
+          "type": "string",
+          "x-rel": {
+            "foreignKey": { "type": "user", "property": "id", "many": true }
+          }
+        },
+        "line1": { "type": "string" },
+        "line2": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "region": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "addressEnvelope": {
+      "type": "object",
+      "required": ["errors"],
+      "properties": {
+        "value": { "$ref": "#/definitions/address" },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        }
+      }
+    },
+    "addressListEnvelope": {
+      "type": "object",
+      "required": ["values", "errors", "pageInfo"],
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/address" }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        },
+        "pageInfo": { "$ref": "#/definitions/pageInfo" }
+      }
+    },
+
+    "product": {
+      "type": "object",
+      "required": ["id", "title", "description", "imageUrl"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "title": { "type": "string", "maxLength": 100 },
+        "description": { "type": "string", "maxLength": 500 },
+        "imageUrl": { "type": "string", "maxLength": 500 },
+        "price": { "type": "number", "minimum": 0, "multipleOf": 0.01 }
+      }
+    },
+    "productEnvelope": {
+      "type": "object",
+      "required": ["errors"],
+      "properties": {
+        "value": { "$ref": "#/definitions/product" },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        }
+      }
+    },
+    "productListEnvelope": {
+      "type": "object",
+      "required": ["values", "errors", "pageInfo"],
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/product" }
+        },
+        "orderEdges": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/orderProduct" }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        },
+        "pageInfo": { "$ref": "#/definitions/pageInfo" }
+      }
+    },
+
+    "order": {
+      "type": "object",
+      "required": ["id", "userId"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "ownerId": {
+          "type": "string",
+          "x-rel": { "foreignKey": { "type": "user", "property": "id" } }
+        },
+        "shippingAddressId": {
+          "type": "string",
+          "x-rel": { "foreignKey": { "type": "address", "property": "id" } }
+        },
+        "billingAddressId": {
+          "type": "string",
+          "x-rel": { "foreignKey": { "type": "address", "property": "id" } }
+        },
+        "status": { "$ref": "#/definitions/orderStatus" }
+      }
+    },
+    "orderStatus": {
+      "type": "string",
+      "enum": ["STARTED", "BILLED", "SHIPPED", "DELIVERED"]
+    },
+    "orderEnvelope": {
+      "type": "object",
+      "required": ["errors"],
+      "properties": {
+        "value": { "$ref": "#/definitions/order" },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        }
+      }
+    },
+    "orderListEnvelope": {
+      "type": "object",
+      "required": ["values", "errors", "pageInfo"],
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/order" }
+        },
+        "productEdges": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/orderProduct" }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/error" }
+        },
+        "pageInfo": { "$ref": "#/definitions/pageInfo" }
+      }
+    },
+
+    "orderProduct": {
+      "type": "object",
+      "required": ["orderId", "productId", "quantity"],
+      "x-rel": { "edge": ["orderId", "productId"] },
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "x-rel": { "foreignKey": { "type": "order", "property": "id" } }
+        },
+        "productId": {
+          "type": "string",
+          "x-rel": { "foreignKey": { "type": "product", "property": "id" } }
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      }
+    }
+  }
+}

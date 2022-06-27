@@ -1,0 +1,25 @@
+{
+  "source": "src/tools/store.oas2.json",
+  "parser": "@basketry/swagger-2",
+  "rules": [
+    "@basketry/rules/lib/response-envelope",
+    "@basketry/rules/lib/relay-pagination",
+    {
+      "rule": "@basketry/rules/lib/casing",
+      "options": {
+        "severity": "error",
+        "enum": "camel",
+        "enumValue": "constant",
+        "path": "kabab",
+        "method": "camel",
+        "parameter": "camel",
+        "query": "kabab",
+        "header": "header",
+        "property": "camel",
+        "type": "camel"
+      }
+    }
+  ],
+  "generators": ["@basketry/ir/lib/generator"],
+  "output": "src/tools"
+}

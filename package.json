@@ -19,7 +19,8 @@
     "fix:prettier": "prettier -w .",
     "clean:coverage": "rimraf coverage",
     "pretest": "run-s -s clean",
-    "prepack": "run-s -s build"
+    "prepack": "run-s -s build",
+    "build:example": "basketry"
   },
   "keywords": [],
   "author": "Steve Konves",
