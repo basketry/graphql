@@ -1,4 +1,6 @@
 coverage
 node_modules
+src/**/*.json
+src/**/*.graphql
 
 lib
