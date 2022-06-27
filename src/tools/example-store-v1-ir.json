@@ -1,0 +1,2926 @@
+{
+  "basketry": "1",
+  "sourcePath": "src/tools/store.oas2.json",
+  "title": {
+    "value": "ExampleStore",
+    "loc": "5;14;28;155;169"
+  },
+  "majorVersion": {
+    "value": 1,
+    "loc": "6;16;23;186;193"
+  },
+  "interfaces": [
+    {
+      "name": "user",
+      "methods": [
+        {
+          "name": {
+            "value": "getUsers",
+            "loc": "41;24;34;830;840"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "userIds",
+                "loc": "45;21;30;925;934"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "48;32;40;1027;1035"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [
+                {
+                  "id": "array-max-items",
+                  "max": {
+                    "value": 100,
+                    "loc": "49;25;28;1063;1066"
+                  },
+                  "loc": "49;13;28;1051;1066"
+                }
+              ],
+              "loc": "43;11;51;12;876;1155",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "50;13;20;1080;1087"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "user",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "50;22;76;1089;1143"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "first",
+                "loc": "10;15;22;246;253"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "12;15;24;290;299"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "14;18;19;343;344"
+                  },
+                  "loc": "14;7;19;332;344"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "15;18;21;363;366"
+                  },
+                  "loc": "15;7;21;352;366"
+                }
+              ],
+              "loc": "9;14;16;6;230;372"
+            },
+            {
+              "name": {
+                "value": "after",
+                "loc": "18;15;22;403;410"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "20;15;23;447;455"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "17;14;22;6;387;486"
+            },
+            {
+              "name": {
+                "value": "last",
+                "loc": "24;15;21;516;522"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "26;15;24;559;568"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "28;18;19;612;613"
+                  },
+                  "loc": "28;7;19;601;613"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "29;18;21;632;635"
+                  },
+                  "loc": "29;7;21;621;635"
+                }
+              ],
+              "loc": "23;13;30;6;500;641"
+            },
+            {
+              "name": {
+                "value": "before",
+                "loc": "32;15;23;673;681"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "34;15;23;718;726"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "31;15;36;6;657;757"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "userListEnvelope",
+              "loc": "340;5;23;9820;9838"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "340;25;354;6;9840;10231"
+          },
+          "loc": "40;7;60;8;798;1435"
+        },
+        {
+          "name": {
+            "value": "getUser",
+            "loc": "72;24;33;1663;1672"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "userId",
+                "loc": "65;19;27;1517;1525"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "67;19;27;1569;1577"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "required"
+                }
+              ],
+              "loc": "64;9;69;10;1497;1615"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "userEnvelope",
+              "loc": "329;5;19;9546;9560"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "329;21;339;6;9562;9814"
+          },
+          "loc": "71;7;76;8;1631;1762"
+        }
+      ],
+      "protocols": {
+        "http": [
+          {
+            "path": {
+              "value": "/users",
+              "loc": "39;5;13;780;788"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getUsers",
+                  "loc": "41;24;34;830;840"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "40;7;12;798;803"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "userIds",
+                      "loc": "45;21;30;925;934"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "44;19;26;896;903"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "43;11;51;12;876;1155"
+                  },
+                  {
+                    "name": {
+                      "value": "first",
+                      "loc": "10;15;22;246;253"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "11;13;20;267;274"
+                    },
+                    "loc": "9;14;16;6;230;372"
+                  },
+                  {
+                    "name": {
+                      "value": "after",
+                      "loc": "18;15;22;403;410"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "19;13;20;424;431"
+                    },
+                    "loc": "17;14;22;6;387;486"
+                  },
+                  {
+                    "name": {
+                      "value": "last",
+                      "loc": "24;15;21;516;522"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "25;13;20;536;543"
+                    },
+                    "loc": "23;13;30;6;500;641"
+                  },
+                  {
+                    "name": {
+                      "value": "before",
+                      "loc": "32;15;23;673;681"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "33;13;20;695;702"
+                    },
+                    "loc": "31;15;36;6;657;757"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "58;11;16;1376;1381"
+                },
+                "loc": "40;7;60;8;798;1435"
+              }
+            ],
+            "loc": "39;5;61;6;780;1441"
+          },
+          {
+            "path": {
+              "value": "/users/:userId",
+              "loc": "62;5;21;1447;1463"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getUser",
+                  "loc": "72;24;33;1663;1672"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "71;7;12;1631;1636"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "userId",
+                      "loc": "65;19;27;1517;1525"
+                    },
+                    "in": {
+                      "value": "path",
+                      "loc": "66;17;23;1543;1549"
+                    },
+                    "loc": "64;9;69;10;1497;1615"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "74;11;16;1707;1712"
+                },
+                "loc": "71;7;76;8;1631;1762"
+              }
+            ],
+            "loc": "62;5;77;6;1447;1768"
+          }
+        ]
+      }
+    },
+    {
+      "name": "address",
+      "methods": [
+        {
+          "name": {
+            "value": "getAddresses",
+            "loc": "81;24;38;1829;1843"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "addressIds",
+                "loc": "85;21;33;1928;1940"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "88;32;40;2033;2041"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [],
+              "loc": "83;11;90;12;1879;2135",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "89;13;20;2057;2064"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "address",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "89;22;79;2066;2123"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "userIds",
+                "loc": "93;21;30;2196;2205"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "96;32;40;2298;2306"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [],
+              "loc": "91;11;98;12;2147;2397",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "97;13;20;2322;2329"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "user",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "97;22;76;2331;2385"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "first",
+                "loc": "10;15;22;246;253"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "12;15;24;290;299"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "14;18;19;343;344"
+                  },
+                  "loc": "14;7;19;332;344"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "15;18;21;363;366"
+                  },
+                  "loc": "15;7;21;352;366"
+                }
+              ],
+              "loc": "9;14;16;6;230;372"
+            },
+            {
+              "name": {
+                "value": "after",
+                "loc": "18;15;22;403;410"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "20;15;23;447;455"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "17;14;22;6;387;486"
+            },
+            {
+              "name": {
+                "value": "last",
+                "loc": "24;15;21;516;522"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "26;15;24;559;568"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "28;18;19;612;613"
+                  },
+                  "loc": "28;7;19;601;613"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "29;18;21;632;635"
+                  },
+                  "loc": "29;7;21;621;635"
+                }
+              ],
+              "loc": "23;13;30;6;500;641"
+            },
+            {
+              "name": {
+                "value": "before",
+                "loc": "32;15;23;673;681"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "34;15;23;718;726"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "31;15;36;6;657;757"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "addressListEnvelope",
+              "loc": "385;5;26;11093;11114"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "385;28;399;6;11116;11510"
+          },
+          "loc": "80;7;107;8;1797;2680"
+        },
+        {
+          "name": {
+            "value": "getAddress",
+            "loc": "119;24;36;2918;2930"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "addressId",
+                "loc": "112;19;30;2769;2780"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "114;19;27;2824;2832"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "required"
+                }
+              ],
+              "loc": "111;9;116;10;2749;2870"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "addressEnvelope",
+              "loc": "374;5;22;10813;10830"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "374;24;384;6;10832;11087"
+          },
+          "loc": "118;7;123;8;2886;3023"
+        }
+      ],
+      "protocols": {
+        "http": [
+          {
+            "path": {
+              "value": "/addresses",
+              "loc": "79;5;17;1775;1787"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getAddresses",
+                  "loc": "81;24;38;1829;1843"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "80;7;12;1797;1802"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "addressIds",
+                      "loc": "85;21;33;1928;1940"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "84;19;26;1899;1906"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "83;11;90;12;1879;2135"
+                  },
+                  {
+                    "name": {
+                      "value": "userIds",
+                      "loc": "93;21;30;2196;2205"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "92;19;26;2167;2174"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "91;11;98;12;2147;2397"
+                  },
+                  {
+                    "name": {
+                      "value": "first",
+                      "loc": "10;15;22;246;253"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "11;13;20;267;274"
+                    },
+                    "loc": "9;14;16;6;230;372"
+                  },
+                  {
+                    "name": {
+                      "value": "after",
+                      "loc": "18;15;22;403;410"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "19;13;20;424;431"
+                    },
+                    "loc": "17;14;22;6;387;486"
+                  },
+                  {
+                    "name": {
+                      "value": "last",
+                      "loc": "24;15;21;516;522"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "25;13;20;536;543"
+                    },
+                    "loc": "23;13;30;6;500;641"
+                  },
+                  {
+                    "name": {
+                      "value": "before",
+                      "loc": "32;15;23;673;681"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "33;13;20;695;702"
+                    },
+                    "loc": "31;15;36;6;657;757"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "105;11;16;2618;2623"
+                },
+                "loc": "80;7;107;8;1797;2680"
+              }
+            ],
+            "loc": "79;5;108;6;1775;2686"
+          },
+          {
+            "path": {
+              "value": "/addresses/:addressId",
+              "loc": "109;5;28;2692;2715"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getAddress",
+                  "loc": "119;24;36;2918;2930"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "118;7;12;2886;2891"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "addressId",
+                      "loc": "112;19;30;2769;2780"
+                    },
+                    "in": {
+                      "value": "path",
+                      "loc": "113;17;23;2798;2804"
+                    },
+                    "loc": "111;9;116;10;2749;2870"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "121;11;16;2965;2970"
+                },
+                "loc": "118;7;123;8;2886;3023"
+              }
+            ],
+            "loc": "109;5;124;6;2692;3029"
+          }
+        ]
+      }
+    },
+    {
+      "name": "order",
+      "methods": [
+        {
+          "name": {
+            "value": "getOrders",
+            "loc": "128;24;35;3087;3098"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "productIds",
+                "loc": "132;21;33;3183;3195"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "135;32;40;3288;3296"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [],
+              "loc": "130;11;137;12;3134;3390",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "136;13;20;3312;3319"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "product",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "136;22;79;3321;3378"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "orderIds",
+                "loc": "140;21;31;3451;3461"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "143;32;40;3554;3562"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [],
+              "loc": "138;11;145;12;3402;3654",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "144;13;20;3578;3585"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "order",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "144;22;77;3587;3642"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "first",
+                "loc": "10;15;22;246;253"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "12;15;24;290;299"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "14;18;19;343;344"
+                  },
+                  "loc": "14;7;19;332;344"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "15;18;21;363;366"
+                  },
+                  "loc": "15;7;21;352;366"
+                }
+              ],
+              "loc": "9;14;16;6;230;372"
+            },
+            {
+              "name": {
+                "value": "after",
+                "loc": "18;15;22;403;410"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "20;15;23;447;455"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "17;14;22;6;387;486"
+            },
+            {
+              "name": {
+                "value": "last",
+                "loc": "24;15;21;516;522"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "26;15;24;559;568"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "28;18;19;612;613"
+                  },
+                  "loc": "28;7;19;601;613"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "29;18;21;632;635"
+                  },
+                  "loc": "29;7;21;621;635"
+                }
+              ],
+              "loc": "23;13;30;6;500;641"
+            },
+            {
+              "name": {
+                "value": "before",
+                "loc": "32;15;23;673;681"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "34;15;23;718;726"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "31;15;36;6;657;757"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "orderListEnvelope",
+              "loc": "478;5;24;13812;13831"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "478;26;496;6;13833;14349"
+          },
+          "loc": "127;7;154;8;3055;3935"
+        },
+        {
+          "name": {
+            "value": "getOrder",
+            "loc": "166;24;34;4166;4176"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "orderId",
+                "loc": "159;19;28;4019;4028"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "161;19;27;4072;4080"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "required"
+                }
+              ],
+              "loc": "158;9;163;10;3999;4118"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "orderEnvelope",
+              "loc": "467;5;20;13536;13551"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "467;22;477;6;13553;13806"
+          },
+          "loc": "165;7;170;8;4134;4267"
+        }
+      ],
+      "protocols": {
+        "http": [
+          {
+            "path": {
+              "value": "/orders",
+              "loc": "126;5;14;3036;3045"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getOrders",
+                  "loc": "128;24;35;3087;3098"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "127;7;12;3055;3060"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "productIds",
+                      "loc": "132;21;33;3183;3195"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "131;19;26;3154;3161"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "130;11;137;12;3134;3390"
+                  },
+                  {
+                    "name": {
+                      "value": "orderIds",
+                      "loc": "140;21;31;3451;3461"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "139;19;26;3422;3429"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "138;11;145;12;3402;3654"
+                  },
+                  {
+                    "name": {
+                      "value": "first",
+                      "loc": "10;15;22;246;253"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "11;13;20;267;274"
+                    },
+                    "loc": "9;14;16;6;230;372"
+                  },
+                  {
+                    "name": {
+                      "value": "after",
+                      "loc": "18;15;22;403;410"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "19;13;20;424;431"
+                    },
+                    "loc": "17;14;22;6;387;486"
+                  },
+                  {
+                    "name": {
+                      "value": "last",
+                      "loc": "24;15;21;516;522"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "25;13;20;536;543"
+                    },
+                    "loc": "23;13;30;6;500;641"
+                  },
+                  {
+                    "name": {
+                      "value": "before",
+                      "loc": "32;15;23;673;681"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "33;13;20;695;702"
+                    },
+                    "loc": "31;15;36;6;657;757"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "152;11;16;3875;3880"
+                },
+                "loc": "127;7;154;8;3055;3935"
+              }
+            ],
+            "loc": "126;5;155;6;3036;3941"
+          },
+          {
+            "path": {
+              "value": "/orders/:orderId",
+              "loc": "156;5;23;3947;3965"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getOrder",
+                  "loc": "166;24;34;4166;4176"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "165;7;12;4134;4139"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "orderId",
+                      "loc": "159;19;28;4019;4028"
+                    },
+                    "in": {
+                      "value": "path",
+                      "loc": "160;17;23;4046;4052"
+                    },
+                    "loc": "158;9;163;10;3999;4118"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "168;11;16;4211;4216"
+                },
+                "loc": "165;7;170;8;4134;4267"
+              }
+            ],
+            "loc": "156;5;171;6;3947;4273"
+          }
+        ]
+      }
+    },
+    {
+      "name": "product",
+      "methods": [
+        {
+          "name": {
+            "value": "getProducts",
+            "loc": "175;24;37;4333;4346"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "productIds",
+                "loc": "179;21;33;4431;4443"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "182;32;40;4536;4544"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [],
+              "loc": "177;11;184;12;4382;4638",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "183;13;20;4560;4567"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "product",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "183;22;79;4569;4626"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "orderIds",
+                "loc": "187;21;31;4699;4709"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "190;32;40;4802;4810"
+              },
+              "isPrimitive": true,
+              "isArray": true,
+              "rules": [],
+              "loc": "185;11;192;12;4650;4902",
+              "meta": [
+                {
+                  "key": {
+                    "value": "rel",
+                    "loc": "191;13;20;4826;4833"
+                  },
+                  "value": {
+                    "value": {
+                      "foreignKey": {
+                        "type": "order",
+                        "property": "id"
+                      }
+                    },
+                    "loc": "191;22;77;4835;4890"
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "value": "first",
+                "loc": "10;15;22;246;253"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "12;15;24;290;299"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "14;18;19;343;344"
+                  },
+                  "loc": "14;7;19;332;344"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "15;18;21;363;366"
+                  },
+                  "loc": "15;7;21;352;366"
+                }
+              ],
+              "loc": "9;14;16;6;230;372"
+            },
+            {
+              "name": {
+                "value": "after",
+                "loc": "18;15;22;403;410"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "20;15;23;447;455"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "17;14;22;6;387;486"
+            },
+            {
+              "name": {
+                "value": "last",
+                "loc": "24;15;21;516;522"
+              },
+              "typeName": {
+                "value": "integer",
+                "loc": "26;15;24;559;568"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "number-gte",
+                  "value": {
+                    "value": 0,
+                    "loc": "28;18;19;612;613"
+                  },
+                  "loc": "28;7;19;601;613"
+                },
+                {
+                  "id": "number-lte",
+                  "value": {
+                    "value": 100,
+                    "loc": "29;18;21;632;635"
+                  },
+                  "loc": "29;7;21;621;635"
+                }
+              ],
+              "loc": "23;13;30;6;500;641"
+            },
+            {
+              "name": {
+                "value": "before",
+                "loc": "32;15;23;673;681"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "34;15;23;718;726"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [],
+              "loc": "31;15;36;6;657;757"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "productListEnvelope",
+              "loc": "423;5;26;12235;12256"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "423;28;441;6;12258;12774"
+          },
+          "loc": "174;7;201;8;4301;5185"
+        },
+        {
+          "name": {
+            "value": "getProduct",
+            "loc": "213;24;36;5422;5434"
+          },
+          "security": [],
+          "parameters": [
+            {
+              "name": {
+                "value": "productId",
+                "loc": "206;19;30;5273;5284"
+              },
+              "typeName": {
+                "value": "string",
+                "loc": "208;19;27;5328;5336"
+              },
+              "isPrimitive": true,
+              "isArray": false,
+              "rules": [
+                {
+                  "id": "required"
+                }
+              ],
+              "loc": "205;9;210;10;5253;5374"
+            }
+          ],
+          "returnType": {
+            "typeName": {
+              "value": "productEnvelope",
+              "loc": "412;5;22;11955;11972"
+            },
+            "isPrimitive": false,
+            "isArray": false,
+            "rules": [],
+            "loc": "412;24;422;6;11974;12229"
+          },
+          "loc": "212;7;217;8;5390;5527"
+        }
+      ],
+      "protocols": {
+        "http": [
+          {
+            "path": {
+              "value": "/products",
+              "loc": "173;5;16;4280;4291"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getProducts",
+                  "loc": "175;24;37;4333;4346"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "174;7;12;4301;4306"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "productIds",
+                      "loc": "179;21;33;4431;4443"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "178;19;26;4402;4409"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "177;11;184;12;4382;4638"
+                  },
+                  {
+                    "name": {
+                      "value": "orderIds",
+                      "loc": "187;21;31;4699;4709"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "186;19;26;4670;4677"
+                    },
+                    "array": {
+                      "value": "csv"
+                    },
+                    "loc": "185;11;192;12;4650;4902"
+                  },
+                  {
+                    "name": {
+                      "value": "first",
+                      "loc": "10;15;22;246;253"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "11;13;20;267;274"
+                    },
+                    "loc": "9;14;16;6;230;372"
+                  },
+                  {
+                    "name": {
+                      "value": "after",
+                      "loc": "18;15;22;403;410"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "19;13;20;424;431"
+                    },
+                    "loc": "17;14;22;6;387;486"
+                  },
+                  {
+                    "name": {
+                      "value": "last",
+                      "loc": "24;15;21;516;522"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "25;13;20;536;543"
+                    },
+                    "loc": "23;13;30;6;500;641"
+                  },
+                  {
+                    "name": {
+                      "value": "before",
+                      "loc": "32;15;23;673;681"
+                    },
+                    "in": {
+                      "value": "query",
+                      "loc": "33;13;20;695;702"
+                    },
+                    "loc": "31;15;36;6;657;757"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "199;11;16;5123;5128"
+                },
+                "loc": "174;7;201;8;4301;5185"
+              }
+            ],
+            "loc": "173;5;202;6;4280;5191"
+          },
+          {
+            "path": {
+              "value": "/products/:productId",
+              "loc": "203;5;27;5197;5219"
+            },
+            "methods": [
+              {
+                "name": {
+                  "value": "getProduct",
+                  "loc": "213;24;36;5422;5434"
+                },
+                "verb": {
+                  "value": "get",
+                  "loc": "212;7;12;5390;5395"
+                },
+                "parameters": [
+                  {
+                    "name": {
+                      "value": "productId",
+                      "loc": "206;19;30;5273;5284"
+                    },
+                    "in": {
+                      "value": "path",
+                      "loc": "207;17;23;5302;5308"
+                    },
+                    "loc": "205;9;210;10;5253;5374"
+                  }
+                ],
+                "successCode": {
+                  "value": 200,
+                  "loc": "215;11;16;5469;5474"
+                },
+                "loc": "212;7;217;8;5390;5527"
+              }
+            ],
+            "loc": "203;5;218;6;5197;5533"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": {
+        "value": "error",
+        "loc": "256;5;12;6588;6595"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "id",
+            "loc": "260;9;13;6681;6685"
+          },
+          "description": {
+            "value": "A unique identifier for this particular occurrence of the problem.",
+            "loc": "261;26;94;6714;6782"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "262;19;27;6802;6810"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "260;15;263;10;6687;6820"
+        },
+        {
+          "name": {
+            "value": "code",
+            "loc": "264;9;15;6830;6836"
+          },
+          "description": {
+            "value": "An application-specific error code, expressed as a string value",
+            "loc": "265;26;91;6865;6930"
+          },
+          "typeName": {
+            "value": "errorCode"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            },
+            {
+              "id": "string-enum",
+              "values": [
+                {
+                  "value": "BAD_PARAMETER",
+                  "loc": "267;20;35;6979;6994"
+                },
+                {
+                  "value": "FORBIDDEN",
+                  "loc": "267;37;48;6996;7007"
+                },
+                {
+                  "value": "NOT_FOUND",
+                  "loc": "267;50;61;7009;7020"
+                }
+              ],
+              "loc": "267;11;62;6970;7021"
+            }
+          ],
+          "loc": "264;17;268;10;6838;7031"
+        },
+        {
+          "name": {
+            "value": "title",
+            "loc": "269;9;16;7041;7048"
+          },
+          "description": {
+            "value": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.",
+            "loc": "270;26;180;7077;7231"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "271;19;27;7251;7259"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "269;18;272;10;7050;7269"
+        },
+        {
+          "name": {
+            "value": "detail",
+            "loc": "273;9;17;7279;7287"
+          },
+          "description": {
+            "value": "a human-readable explanation specific to this occurrence of the problem. Like `title`, this field’s value can be localized.",
+            "loc": "274;26;151;7316;7441"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "275;19;27;7461;7469"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "273;19;276;10;7289;7479"
+        },
+        {
+          "name": {
+            "value": "pointer",
+            "loc": "277;9;18;7489;7498"
+          },
+          "description": {
+            "value": "A JSON Pointer (RFC6901) to the associated entity in the request document (e.g. `/data` for a primary data object, or `/data/attributes/title` for a specific attribute).",
+            "loc": "278;26;197;7527;7698"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "279;19;27;7718;7726"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "277;20;280;10;7500;7736"
+        },
+        {
+          "name": {
+            "value": "parameter",
+            "loc": "281;9;20;7746;7757"
+          },
+          "description": {
+            "value": "A string indicating which method parameter caused the error.",
+            "loc": "282;26;88;7786;7848"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "283;19;27;7868;7876"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "281;22;284;10;7759;7886"
+        }
+      ],
+      "rules": [],
+      "loc": "256;5;286;6;6588;7900"
+    },
+    {
+      "name": {
+        "value": "pageInfo",
+        "loc": "287;5;15;7906;7916"
+      },
+      "description": {
+        "value": "Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.",
+        "loc": "288;22;164;7941;8083"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "hasPreviousPage",
+            "loc": "292;9;26;8193;8210"
+          },
+          "description": {
+            "value": "Indicates whether more items exist prior to the set defined by the client's arguments.",
+            "loc": "293;26;114;8239;8327"
+          },
+          "typeName": {
+            "value": "boolean",
+            "loc": "294;19;28;8347;8356"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "292;28;295;10;8212;8366"
+        },
+        {
+          "name": {
+            "value": "hasNextPage",
+            "loc": "296;9;22;8376;8389"
+          },
+          "description": {
+            "value": "Indicates whether more items exist following the set defined by the client's arguments.",
+            "loc": "297;26;115;8418;8507"
+          },
+          "typeName": {
+            "value": "boolean",
+            "loc": "298;19;28;8527;8536"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "296;24;299;10;8391;8546"
+        },
+        {
+          "name": {
+            "value": "startCursor",
+            "loc": "300;9;22;8556;8569"
+          },
+          "description": {
+            "value": "Cursor corresponding to the first item in the resulting set if any items were returned; otherwise, undefined",
+            "loc": "301;26;136;8598;8708"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "302;19;27;8728;8736"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "300;24;303;10;8571;8746"
+        },
+        {
+          "name": {
+            "value": "endCursor",
+            "loc": "304;9;20;8756;8767"
+          },
+          "description": {
+            "value": "Cursor corresponding to the last item in the resulting set if any items were returned; otherwise, undefined",
+            "loc": "305;26;135;8796;8905"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "306;19;27;8925;8933"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "304;22;307;10;8769;8943"
+        }
+      ],
+      "rules": [],
+      "loc": "287;5;309;6;7906;8957"
+    },
+    {
+      "name": {
+        "value": "user",
+        "loc": "311;5;11;8964;8970"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "id",
+            "loc": "315;9;13;9062;9066"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "255;21;29;6539;6547"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "255;11;64;6529;6582",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "255;31;38;6549;6556"
+              },
+              "value": {
+                "value": {
+                  "primaryKey": true
+                },
+                "loc": "255;40;62;6558;6580"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "name",
+            "loc": "316;9;15;9108;9114"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "316;27;35;9126;9134"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            },
+            {
+              "id": "string-max-length",
+              "length": {
+                "value": 100,
+                "loc": "316;50;53;9149;9152"
+              },
+              "loc": "316;37;53;9136;9152"
+            }
+          ],
+          "loc": "316;17;55;9116;9154"
+        },
+        {
+          "name": {
+            "value": "avatarUrl",
+            "loc": "317;9;20;9164;9175"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "317;32;40;9187;9195"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "string-max-length",
+              "length": {
+                "value": 500,
+                "loc": "317;55;58;9210;9213"
+              },
+              "loc": "317;42;58;9197;9213"
+            }
+          ],
+          "loc": "317;22;60;9177;9215"
+        },
+        {
+          "name": {
+            "value": "defaultAddressId",
+            "loc": "318;9;27;9225;9243"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "319;19;27;9265;9273"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "318;29;321;10;9245;9361",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "320;11;18;9285;9292"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "address",
+                    "property": "id"
+                  }
+                },
+                "loc": "320;20;77;9294;9351"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "widgetId",
+            "loc": "322;9;19;9371;9381"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "323;19;27;9403;9411"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "string-max-length",
+              "length": {
+                "value": 100,
+                "loc": "324;24;27;9436;9439"
+              },
+              "loc": "324;11;27;9423;9439"
+            }
+          ],
+          "loc": "322;21;326;10;9383;9526",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "325;11;18;9451;9458"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "widget",
+                    "property": "id"
+                  }
+                },
+                "loc": "325;20;76;9460;9516"
+              }
+            }
+          ]
+        }
+      ],
+      "rules": [],
+      "loc": "311;5;328;6;8964;9540"
+    },
+    {
+      "name": {
+        "value": "userEnvelope",
+        "loc": "329;5;19;9546;9560"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "value",
+            "loc": "333;9;16;9648;9655"
+          },
+          "typeName": {
+            "value": "user",
+            "loc": "311;5;11;8964;8970"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [],
+          "loc": "311;13;328;6;8972;9540"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "334;9;17;9699;9707"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "334;19;337;10;9709;9800"
+        }
+      ],
+      "rules": [],
+      "loc": "329;5;339;6;9546;9814"
+    },
+    {
+      "name": {
+        "value": "userListEnvelope",
+        "loc": "340;5;23;9820;9838"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "values",
+            "loc": "344;9;17;9948;9956"
+          },
+          "typeName": {
+            "value": "user",
+            "loc": "311;5;11;8964;8970"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "344;19;347;10;9958;10048"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "348;9;17;10058;10066"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "348;19;351;10;10068;10159"
+        },
+        {
+          "name": {
+            "value": "pageInfo",
+            "loc": "352;9;19;10169;10179"
+          },
+          "description": {
+            "value": "Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.",
+            "loc": "288;22;164;7941;8083"
+          },
+          "typeName": {
+            "value": "pageInfo",
+            "loc": "287;5;15;7906;7916"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "287;17;309;6;7918;8957"
+        }
+      ],
+      "rules": [],
+      "loc": "340;5;354;6;9820;10231"
+    },
+    {
+      "name": {
+        "value": "address",
+        "loc": "356;5;14;10238;10247"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "id",
+            "loc": "360;9;13;10385;10389"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "255;21;29;6539;6547"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "255;11;64;6529;6582",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "255;31;38;6549;6556"
+              },
+              "value": {
+                "value": {
+                  "primaryKey": true
+                },
+                "loc": "255;40;62;6558;6580"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "userId",
+            "loc": "361;9;17;10431;10439"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "362;19;27;10461;10469"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "361;19;366;10;10441;10590",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "363;11;18;10481;10488"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "user",
+                    "property": "id",
+                    "many": true
+                  }
+                },
+                "loc": "363;20;365;12;10490;10580"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "line1",
+            "loc": "367;9;16;10600;10607"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "367;28;36;10619;10627"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "367;18;38;10609;10629"
+        },
+        {
+          "name": {
+            "value": "line2",
+            "loc": "368;9;16;10639;10646"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "368;28;36;10658;10666"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "368;18;38;10648;10668"
+        },
+        {
+          "name": {
+            "value": "postalCode",
+            "loc": "369;9;21;10678;10690"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "369;33;41;10702;10710"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "369;23;43;10692;10712"
+        },
+        {
+          "name": {
+            "value": "region",
+            "loc": "370;9;17;10722;10730"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "370;29;37;10742;10750"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "370;19;39;10732;10752"
+        },
+        {
+          "name": {
+            "value": "country",
+            "loc": "371;9;18;10762;10771"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "371;30;38;10783;10791"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "371;20;40;10773;10793"
+        }
+      ],
+      "rules": [],
+      "loc": "356;5;373;6;10238;10807"
+    },
+    {
+      "name": {
+        "value": "addressEnvelope",
+        "loc": "374;5;22;10813;10830"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "value",
+            "loc": "378;9;16;10918;10925"
+          },
+          "typeName": {
+            "value": "address",
+            "loc": "356;5;14;10238;10247"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [],
+          "loc": "356;16;373;6;10249;10807"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "379;9;17;10972;10980"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "379;19;382;10;10982;11073"
+        }
+      ],
+      "rules": [],
+      "loc": "374;5;384;6;10813;11087"
+    },
+    {
+      "name": {
+        "value": "addressListEnvelope",
+        "loc": "385;5;26;11093;11114"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "values",
+            "loc": "389;9;17;11224;11232"
+          },
+          "typeName": {
+            "value": "address",
+            "loc": "356;5;14;10238;10247"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "389;19;392;10;11234;11327"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "393;9;17;11337;11345"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "393;19;396;10;11347;11438"
+        },
+        {
+          "name": {
+            "value": "pageInfo",
+            "loc": "397;9;19;11448;11458"
+          },
+          "description": {
+            "value": "Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.",
+            "loc": "288;22;164;7941;8083"
+          },
+          "typeName": {
+            "value": "pageInfo",
+            "loc": "287;5;15;7906;7916"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "287;17;309;6;7918;8957"
+        }
+      ],
+      "rules": [],
+      "loc": "385;5;399;6;11093;11510"
+    },
+    {
+      "name": {
+        "value": "product",
+        "loc": "401;5;14;11517;11526"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "id",
+            "loc": "405;9;13;11646;11650"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "255;21;29;6539;6547"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "255;11;64;6529;6582",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "255;31;38;6549;6556"
+              },
+              "value": {
+                "value": {
+                  "primaryKey": true
+                },
+                "loc": "255;40;62;6558;6580"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "title",
+            "loc": "406;9;16;11692;11699"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "406;28;36;11711;11719"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            },
+            {
+              "id": "string-max-length",
+              "length": {
+                "value": 100,
+                "loc": "406;51;54;11734;11737"
+              },
+              "loc": "406;38;54;11721;11737"
+            }
+          ],
+          "loc": "406;18;56;11701;11739"
+        },
+        {
+          "name": {
+            "value": "description",
+            "loc": "407;9;22;11749;11762"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "407;34;42;11774;11782"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            },
+            {
+              "id": "string-max-length",
+              "length": {
+                "value": 500,
+                "loc": "407;57;60;11797;11800"
+              },
+              "loc": "407;44;60;11784;11800"
+            }
+          ],
+          "loc": "407;24;62;11764;11802"
+        },
+        {
+          "name": {
+            "value": "imageUrl",
+            "loc": "408;9;19;11812;11822"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "408;31;39;11834;11842"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            },
+            {
+              "id": "string-max-length",
+              "length": {
+                "value": 500,
+                "loc": "408;54;57;11857;11860"
+              },
+              "loc": "408;41;57;11844;11860"
+            }
+          ],
+          "loc": "408;21;59;11824;11862"
+        },
+        {
+          "name": {
+            "value": "price",
+            "loc": "409;9;16;11872;11879"
+          },
+          "typeName": {
+            "value": "number",
+            "loc": "409;28;36;11891;11899"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "number-multiple-of",
+              "value": {
+                "value": 0.01,
+                "loc": "409;66;70;11929;11933"
+              },
+              "loc": "409;52;70;11915;11933"
+            },
+            {
+              "id": "number-gte",
+              "value": {
+                "value": 0,
+                "loc": "409;49;50;11912;11913"
+              },
+              "loc": "409;38;50;11901;11913"
+            }
+          ],
+          "loc": "409;18;72;11881;11935"
+        }
+      ],
+      "rules": [],
+      "loc": "401;5;411;6;11517;11949"
+    },
+    {
+      "name": {
+        "value": "productEnvelope",
+        "loc": "412;5;22;11955;11972"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "value",
+            "loc": "416;9;16;12060;12067"
+          },
+          "typeName": {
+            "value": "product",
+            "loc": "401;5;14;11517;11526"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [],
+          "loc": "401;16;411;6;11528;11949"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "417;9;17;12114;12122"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "417;19;420;10;12124;12215"
+        }
+      ],
+      "rules": [],
+      "loc": "412;5;422;6;11955;12229"
+    },
+    {
+      "name": {
+        "value": "productListEnvelope",
+        "loc": "423;5;26;12235;12256"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "values",
+            "loc": "427;9;17;12366;12374"
+          },
+          "typeName": {
+            "value": "product",
+            "loc": "401;5;14;11517;11526"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "427;19;430;10;12376;12469"
+        },
+        {
+          "name": {
+            "value": "orderEdges",
+            "loc": "431;9;21;12479;12491"
+          },
+          "typeName": {
+            "value": "orderProduct",
+            "loc": "498;5;19;14356;14370"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [],
+          "loc": "431;23;434;10;12493;12591"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "435;9;17;12601;12609"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "435;19;438;10;12611;12702"
+        },
+        {
+          "name": {
+            "value": "pageInfo",
+            "loc": "439;9;19;12712;12722"
+          },
+          "description": {
+            "value": "Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.",
+            "loc": "288;22;164;7941;8083"
+          },
+          "typeName": {
+            "value": "pageInfo",
+            "loc": "287;5;15;7906;7916"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "287;17;309;6;7918;8957"
+        }
+      ],
+      "rules": [],
+      "loc": "423;5;441;6;12235;12774"
+    },
+    {
+      "name": {
+        "value": "order",
+        "loc": "443;5;12;12781;12788"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "id",
+            "loc": "447;9;13;12882;12886"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "255;21;29;6539;6547"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "255;11;64;6529;6582",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "255;31;38;6549;6556"
+              },
+              "value": {
+                "value": {
+                  "primaryKey": true
+                },
+                "loc": "255;40;62;6558;6580"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "ownerId",
+            "loc": "448;9;18;12928;12937"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "449;19;27;12959;12967"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "448;20;451;10;12939;13052",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "450;11;18;12979;12986"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "user",
+                    "property": "id"
+                  }
+                },
+                "loc": "450;20;74;12988;13042"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "shippingAddressId",
+            "loc": "452;9;28;13062;13081"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "453;19;27;13103;13111"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "452;30;455;10;13083;13199",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "454;11;18;13123;13130"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "address",
+                    "property": "id"
+                  }
+                },
+                "loc": "454;20;77;13132;13189"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "billingAddressId",
+            "loc": "456;9;27;13209;13227"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "457;19;27;13249;13257"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [],
+          "loc": "456;29;459;10;13229;13345",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "458;11;18;13269;13276"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "address",
+                    "property": "id"
+                  }
+                },
+                "loc": "458;20;77;13278;13335"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "status",
+            "loc": "460;9;17;13355;13363"
+          },
+          "typeName": {
+            "value": "orderStatus",
+            "loc": "463;5;18;13424;13437"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "string-enum",
+              "values": [
+                {
+                  "value": "STARTED",
+                  "loc": "465;16;25;13480;13489"
+                },
+                {
+                  "value": "BILLED",
+                  "loc": "465;27;35;13491;13499"
+                },
+                {
+                  "value": "SHIPPED",
+                  "loc": "465;37;46;13501;13510"
+                },
+                {
+                  "value": "DELIVERED",
+                  "loc": "465;48;59;13512;13523"
+                }
+              ],
+              "loc": "465;7;60;13471;13524"
+            }
+          ],
+          "loc": "463;20;466;6;13439;13530"
+        }
+      ],
+      "rules": [],
+      "loc": "443;5;462;6;12781;13418"
+    },
+    {
+      "name": {
+        "value": "orderEnvelope",
+        "loc": "467;5;20;13536;13551"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "value",
+            "loc": "471;9;16;13639;13646"
+          },
+          "typeName": {
+            "value": "order",
+            "loc": "443;5;12;12781;12788"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [],
+          "loc": "443;14;462;6;12790;13418"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "472;9;17;13691;13699"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "472;19;475;10;13701;13792"
+        }
+      ],
+      "rules": [],
+      "loc": "467;5;477;6;13536;13806"
+    },
+    {
+      "name": {
+        "value": "orderListEnvelope",
+        "loc": "478;5;24;13812;13831"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "values",
+            "loc": "482;9;17;13941;13949"
+          },
+          "typeName": {
+            "value": "order",
+            "loc": "443;5;12;12781;12788"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "482;19;485;10;13951;14042"
+        },
+        {
+          "name": {
+            "value": "productEdges",
+            "loc": "486;9;23;14052;14066"
+          },
+          "typeName": {
+            "value": "orderProduct",
+            "loc": "498;5;19;14356;14370"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [],
+          "loc": "486;25;489;10;14068;14166"
+        },
+        {
+          "name": {
+            "value": "errors",
+            "loc": "490;9;17;14176;14184"
+          },
+          "typeName": {
+            "value": "error",
+            "loc": "256;5;12;6588;6595"
+          },
+          "isPrimitive": false,
+          "isArray": true,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "490;19;493;10;14186;14277"
+        },
+        {
+          "name": {
+            "value": "pageInfo",
+            "loc": "494;9;19;14287;14297"
+          },
+          "description": {
+            "value": "Implements the [GraphQL Cursor Connection Specification](https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo) Page Info obejct.",
+            "loc": "288;22;164;7941;8083"
+          },
+          "typeName": {
+            "value": "pageInfo",
+            "loc": "287;5;15;7906;7916"
+          },
+          "isPrimitive": false,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "287;17;309;6;7918;8957"
+        }
+      ],
+      "rules": [],
+      "loc": "478;5;496;6;13812;14349"
+    },
+    {
+      "name": {
+        "value": "orderProduct",
+        "loc": "498;5;19;14356;14370"
+      },
+      "properties": [
+        {
+          "name": {
+            "value": "orderId",
+            "loc": "503;9;18;14537;14546"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "504;19;27;14568;14576"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "503;20;506;10;14548;14662",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "505;11;18;14588;14595"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "order",
+                    "property": "id"
+                  }
+                },
+                "loc": "505;20;75;14597;14652"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "productId",
+            "loc": "507;9;20;14672;14683"
+          },
+          "typeName": {
+            "value": "string",
+            "loc": "508;19;27;14705;14713"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            }
+          ],
+          "loc": "507;22;510;10;14685;14801",
+          "meta": [
+            {
+              "key": {
+                "value": "rel",
+                "loc": "509;11;18;14725;14732"
+              },
+              "value": {
+                "value": {
+                  "foreignKey": {
+                    "type": "product",
+                    "property": "id"
+                  }
+                },
+                "loc": "509;20;77;14734;14791"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "value": "quantity",
+            "loc": "511;9;19;14811;14821"
+          },
+          "typeName": {
+            "value": "integer",
+            "loc": "512;19;28;14843;14852"
+          },
+          "isPrimitive": true,
+          "isArray": false,
+          "rules": [
+            {
+              "id": "required"
+            },
+            {
+              "id": "number-gte",
+              "value": {
+                "value": 1,
+                "loc": "513;22;23;14875;14876"
+              },
+              "loc": "513;11;23;14864;14876"
+            },
+            {
+              "id": "number-lte",
+              "value": {
+                "value": 20,
+                "loc": "514;22;24;14899;14901"
+              },
+              "loc": "514;11;24;14888;14901"
+            }
+          ],
+          "loc": "511;21;515;10;14823;14911"
+        }
+      ],
+      "rules": [],
+      "loc": "498;5;517;6;14356;14925",
+      "meta": [
+        {
+          "key": {
+            "value": "rel",
+            "loc": "501;7;14;14460;14467"
+          },
+          "value": {
+            "value": {
+              "edge": [
+                "orderId",
+                "productId"
+              ]
+            },
+            "loc": "501;16;52;14469;14505"
+          }
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": {
+        "value": "errorCode"
+      },
+      "values": [
+        {
+          "value": "BAD_PARAMETER",
+          "loc": "267;20;35;6979;6994"
+        },
+        {
+          "value": "FORBIDDEN",
+          "loc": "267;37;48;6996;7007"
+        },
+        {
+          "value": "NOT_FOUND",
+          "loc": "267;50;61;7009;7020"
+        }
+      ],
+      "loc": "267;11;62;6970;7021"
+    },
+    {
+      "name": {
+        "value": "orderStatus",
+        "loc": "463;5;18;13424;13437"
+      },
+      "values": [
+        {
+          "value": "STARTED",
+          "loc": "465;16;25;13480;13489"
+        },
+        {
+          "value": "BILLED",
+          "loc": "465;27;35;13491;13499"
+        },
+        {
+          "value": "SHIPPED",
+          "loc": "465;37;46;13501;13510"
+        },
+        {
+          "value": "DELIVERED",
+          "loc": "465;48;59;13512;13523"
+        }
+      ],
+      "loc": "465;7;60;13471;13524"
+    }
+  ],
+  "unions": [],
+  "loc": "1;1;519;2;0;14931"
+}
