@@ -4,6 +4,7 @@
   "rules": [
     "@basketry/rules/lib/response-envelope",
     "@basketry/rules/lib/relay-pagination",
+    "src/rules",
     {
       "rule": "@basketry/rules/lib/casing",
       "options": {
