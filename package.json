@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "clean": "run-s -s clean:*",
-    "create-snapshot": "ts-node ./src/snapshot/create-snapshot.ts",
+    "create-snapshot": "run-s build:example build:snapshot",
     "lint": "run-s -s lint:*",
     "fix": "run-s -s fix:*",
     "clean:output": "rimraf lib",
@@ -20,7 +20,8 @@
     "clean:coverage": "rimraf coverage",
     "pretest": "run-s -s clean",
     "prepack": "run-s -s build",
-    "build:example": "basketry"
+    "build:example": "basketry",
+    "build:snapshot": "ts-node ./src/snapshot/create-snapshot.ts"
   },
   "keywords": [],
   "author": "Steve Konves",
