@@ -14,7 +14,7 @@ const service = require('../tools/example-store-v1-ir.json');
 
 const snapshotFiles = generator(service);
 
-for (const file of withGitattributes(snapshotFiles)) {
+for (const file of snapshotFiles) {
   const path = file.path.slice(0, file.path.length - 1);
   const filename = file.path[file.path.length - 1];
 

@@ -16,7 +16,7 @@ describe('parser', () => {
     const snapshotFiles = generator(service);
 
     // ASSERT
-    for (const file of withGitattributes(snapshotFiles)) {
+    for (const file of snapshotFiles) {
       const path = join('src', 'snapshot', ...file.path);
       const snapshot = readFileSync(path)
         .toString()
