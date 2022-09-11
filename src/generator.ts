@@ -9,6 +9,7 @@ import {
   Property,
   Service,
   Type,
+  warning,
 } from 'basketry';
 import { camel, constant, kebab, pascal, snake } from 'case';
 
@@ -46,7 +47,20 @@ class SchemaFactory {
     return Array.from(this.buildSchema()).join('\n');
   }
 
+  private *warning(): Iterable<string> {
+    for (const line of warning(
+      this.service,
+      require('../package.json'),
+      this.options,
+    )) {
+      yield `# ${line}`.trim();
+    }
+  }
+
   private *buildSchema(): Iterable<string> {
+    yield* this.warning();
+    yield '';
+
     yield* this.buildQueryType();
 
     for (const type of this.engine.types.sort(byName)) {
