@@ -3,11 +3,15 @@
 
 # GraphQL support
 
+## Engine
+
+The GraphQL "Engine" defines the logic for expressing a service in terms of GraphQL. It is used to power the schema generator included in this package and can be used for building custom generators for emitting GraphQL-related code.
+
 ## Generator
 
 The provided generator creates a GraphQL schema. This package also provides a definition for the `rel` metadata type that defines the relationship between types. This allows the generator to produce a scehma that can be implemented solely by calls to the methods also defined in the service.
 
-Use the `rel` metadata type and the provided rules to ensure that the service design includes the necessary features to support generating a GraphQL schema.f
+Use the `rel` metadata type and the provided rules to ensure that the service design includes the necessary features to support generating a GraphQL schema.
 
 ## Rules
 
