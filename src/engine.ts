@@ -405,23 +405,30 @@ export class Engine {
     return Array.from(this.typesCache);
   }
 
+  /** Gets all of the enums included in this schema */
   get enums(): Enum[] {
     return Array.from(this.enumsCache);
   }
 
+  /** Gets all of the services methods that back this schema */
   get methods(): Method[] {
     return Array.from(this.methodsCache);
   }
 
+  /** Determines if the supplied property should be considered a @key for the purposes of Apollo federation */
   public isKey(type: Type, prop: Property): boolean {
     return this.getResolver(type, prop)?.kind === 'key';
   }
 
+  /** Determines if any resolvers in the schema have a one-direction Relay connection to the supplied type */
   public hasConnection(type: Type): boolean {
     return this.connections.has(type);
   }
 
-  public getResolver(type: Type, prop: Property) {
+  public getResolver(
+    type: Type,
+    prop: Property,
+  ): Key | EntityResolver | undefined {
     return this.resolversCache.get(type)?.properties.get(prop);
   }
 
